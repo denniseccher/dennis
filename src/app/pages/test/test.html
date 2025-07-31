@@ -1,1 +1,14 @@
-<p>test works!</p>
+<den-navbar></den-navbar>
+<div 
+  class="dynamic-grid-container w-full grid grid-cols-2 md:grid-cols-4 grid-flow-dense gap-4 md:px-10 lg:px-48 px-4 pt-6 pb-12"
+  [style.--columns]="numberOfColumns"
+  [style.--total-gap]="totalGap"
+  [style.--total-padding]="totalPadding">
+
+  @for (item of gridItems; track item.id) {
+    <den-box [width]="item.cols" [height]="item.rows">
+      {{ item.id }}
+    </den-box>
+  }
+
+</div>

@@ -1,0 +1,16 @@
+<div class="tab-container grid items-center px-16 py-4">
+    <p class="title justify-self-start">dennis</p>
+
+    <div class="tabs justify-self-center">
+        <div class="indicator" [ngStyle]="{
+            'width.px': indicatorWidth,
+            'transform': 'translateX(' + indicatorTranslate + 'px)'
+        }"></div>
+        <button *ngFor="let tab of tabs; let i = index" (click)="selectTab(i, $event)"
+            [class.active]="selectedIndex === i" class="tab-button">
+            {{ tab }}
+        </button>
+    </div>
+
+    <p class="actions justify-self-end">holaholaholaholaholaholaholaholahola</p>
+</div>

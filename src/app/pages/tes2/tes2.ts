@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tes2',
+  selector: 'den-tes2',
   imports: [],
   templateUrl: './tes2.html',
   styleUrl: './tes2.scss'

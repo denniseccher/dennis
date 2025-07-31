@@ -1,0 +1,69 @@
+// Contenitore principale della barra
+.tab-container {
+    font-family: system-ui, sans-serif;
+
+    // --- REGOLA CHIAVE ---
+    // Fa in modo che tutti i figli diretti (*) si sovrappongano
+    // nella stessa cella della griglia, occupando tutta la larghezza.
+    & > * {
+        grid-row: 1 / 1; 
+        grid-column: 1 / -1; 
+    }
+}
+
+// Stile per l'elemento a sinistra
+.title {
+    font-family: 'Fascinate';
+    font-size: xx-large;
+    background: linear-gradient(90deg, #e3342f, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+// Stile per l'elemento a destra
+.actions {
+    // Inserisci qui lo stile per le tue azioni
+    font-size: 0.9rem;
+    color: #666;
+}
+
+// Stili per la barra di navigazione (invariati)
+.tabs {
+    position: relative;
+    display: flex;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 9999px;
+    padding: 0.35rem;
+}
+
+.indicator {
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    height: calc(100% - 0.7rem);
+    background: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-button {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    z-index: 2;
+    padding: 0.6rem 1.25rem;
+    border-radius: 9999px;
+    transition: color 0.3s ease-in-out;
+
+    &.active {
+        color: #000;
+    }
+}
