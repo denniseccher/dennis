@@ -3,7 +3,9 @@
         max-width: 40%;
         max-height: 40%;
         aspect-ratio: 1;
-        object-fit: cover;
-        border-radius: 16px;
+        object-fit: contain;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
 }

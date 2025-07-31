@@ -32,19 +32,35 @@ export class Test {
   };
 
   gridItems: any[] = [
-    { id: 1, cols: 2, rows: 1, },
-    
-    { id: 3, cols: 1, rows: 2, },
-    
-    { id: 5, cols: 1, rows: 1, },
-    { id: 6, cols: 1, rows: 2, },
-    { id: 7, cols: 2, rows: 1, },
-    { id: 8, cols: 1, rows: 1, },
-    { id: 9, cols: 2, rows: 1, },
-    { id: 10, cols: 2, rows: 1, },
+    // { id: 1, cols: 2, rows: 1, },
+
+    // { id: 3, cols: 1, rows: 2, },
+
+    // { id: 5, cols: 1, rows: 1, },
+    // { id: 6, cols: 1, rows: 2, },
+    // { id: 7, cols: 2, rows: 1, },
+    // { id: 8, cols: 1, rows: 1, },
+    // { id: 9, cols: 2, rows: 1, },
+    // { id: 10, cols: 2, rows: 1, },
     { id: 2, cols: 1, rows: 1, type: 'link', colors: ['#5C44E4', '#8514F5', '#E90464', '#F11653'], imgSrc: "assets/icons/angular.svg" },
     { id: 4, cols: 1, rows: 1, type: 'link', colors: ['#1a1a1a'], imgSrc: 'assets/icons/supabase.svg' },
-    this.linkItem
+
+    { id: 15, cols: 1, rows: 1, type: 'link', colors: ['#1a1a1a'], imgSrc: 'assets/icons/figma.svg' },
+    { id: 18, cols: 1, rows: 1, type: 'link', colors: ['#1a1a1a'], imgSrc: 'assets/icons/github.svg' },
+    {
+      imgSrc: 'assets/icons/flutter.svg',
+      id: 14,
+      cols: 1,
+      rows: 1,
+      type: 'link',
+      colors: ['#0553B1']
+    },
+    { id: 16, cols: 1, rows: 1, type: 'link', colors: ['#d9e2ed'], imgSrc: 'assets/icons/postgres.png' },
+    { id: 17, cols: 1, rows: 1, type: 'link', colors: ['#FDFCFB'], imgSrc: 'assets/icons/firebase.svg' },
+
+    { id: 18, cols: 1, rows: 1, type: 'link', colors: ['#FDFCFB'], imgSrc: 'assets/icons/html.svg' },
+    { id: 18, cols: 1, rows: 1, type: 'link', colors: ['#FDFCFB'], imgSrc: 'assets/icons/css.svg' },
+    { id: 18, cols: 1, rows: 1, type: 'link', colors: ['#FDFCFB'], imgSrc: 'assets/icons/photoshop.svg' },
   ];
 
   numberOfColumns = 2;
@@ -85,12 +101,12 @@ export class Test {
   get totalPadding(): string {
     return `${this.paddingInRem * 2}rem`;
   }
-  
+
   isLinkBox(item: BoxInterface | LinkBoxInterface): item is LinkBoxInterface {
     return 'link' in item || 'colors' in item || 'imgSrc' in item;
   }
 
-  getType(item: BoxInterface): string | undefined{
+  getType(item: BoxInterface): string | undefined {
     return item.type;
   }
 

@@ -26,6 +26,10 @@ export abstract class BoxBase {
   @HostBinding('style.overflow')
   readonly overflow = 'hidden';
 
+  @HostBinding('style.box-shadow')
+  readonly boxShadow = '0 4px 12px rgba(0, 0, 0, 0.10), 0 1.5px 4px rgba(0, 0, 0, 0.07)';
+
+
   get gridColumnStyle(): string {
     return `span ${this.cols}`;
   }
