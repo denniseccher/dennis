@@ -1,17 +1,11 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Navbar } from '../../components/navbar/navbar';
-import { Box } from '../../components/box/box';
-
-export interface GridItem {
-  id: number;
-  cols: number;
-  rows: number;
-  x?: number;
-  y?: number;
-  content?: string | undefined
-}
+import { LinkBox } from '../../components/boxes/link-box/link-box';
+import { LinkBoxInterface } from '../../interfaces/boxes/link-box';
+import { BoxInterface } from '../../interfaces/boxes/box';
+import { DefaultBox } from '../../components/boxes/default-box/default-box';
 
 @Component({
   selector: 'den-test',
@@ -20,23 +14,37 @@ export interface GridItem {
     CommonModule,
     Navbar,
     CommonModule,
-    Box
+    LinkBox,
+    DefaultBox
   ],
   templateUrl: './test.html',
   styleUrl: './test.scss'
 })
 export class Test {
-  gridItems: GridItem[] = [
-    { id: 1, cols: 2, rows: 1, x: 1, y: 1 },
-    { id: 2, cols: 1, rows: 1, x: 3, y: 1 },
-    { id: 3, cols: 1, rows: 2, x: 4, y: 1 },
-    { id: 4, cols: 1, rows: 1, x: 3, y: 2 },
-    { id: 5, cols: 1, rows: 1, x: 4, y: 3 },
-    { id: 6, cols: 1, rows: 2, x: 1, y: 3 },
-    { id: 7, cols: 2, rows: 1, x: 1, y: 4 },
-    { id: 8, cols: 1, rows: 1, x: 3, y: 4 },
-    { id: 9, cols: 2, rows: 1, x: 3, y: 5 },
-    { id: 10, cols: 2, rows: 1, x: 2, y: 6 }
+
+  linkItem: LinkBoxInterface = {
+    imgSrc: 'assets/icons/flutter.svg',
+    id: 14,
+    cols: 1,
+    rows: 1,
+    type: 'link',
+    colors: ['#0553B1']
+  };
+
+  gridItems: any[] = [
+    { id: 1, cols: 2, rows: 1, },
+    
+    { id: 3, cols: 1, rows: 2, },
+    
+    { id: 5, cols: 1, rows: 1, },
+    { id: 6, cols: 1, rows: 2, },
+    { id: 7, cols: 2, rows: 1, },
+    { id: 8, cols: 1, rows: 1, },
+    { id: 9, cols: 2, rows: 1, },
+    { id: 10, cols: 2, rows: 1, },
+    { id: 2, cols: 1, rows: 1, type: 'link', colors: ['#5C44E4', '#8514F5', '#E90464', '#F11653'], imgSrc: "assets/icons/angular.svg" },
+    { id: 4, cols: 1, rows: 1, type: 'link', colors: ['#1a1a1a'], imgSrc: 'assets/icons/supabase.svg' },
+    this.linkItem
   ];
 
   numberOfColumns = 2;
@@ -77,4 +85,13 @@ export class Test {
   get totalPadding(): string {
     return `${this.paddingInRem * 2}rem`;
   }
+  
+  isLinkBox(item: BoxInterface | LinkBoxInterface): item is LinkBoxInterface {
+    return 'link' in item || 'colors' in item || 'imgSrc' in item;
+  }
+
+  getType(item: BoxInterface): string | undefined{
+    return item.type;
+  }
+
 }

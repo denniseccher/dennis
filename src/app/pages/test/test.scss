@@ -3,11 +3,3 @@
     (100cqw - var(--total-gap, 0rem) - var(--total-padding, 0rem)) / var(--columns, 1)
   );
 }
-
-.box{
-    font-weight: lighter;
-
-    &:hover{
-        font-weight: bold;
-    }
-}
