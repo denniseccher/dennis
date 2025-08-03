@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="563" height="1161" viewBox="0 0 563 1161">
+  <style>
+    :root {
+      --bg-col: #FFB300;    /* fallback arancione */
+      --accent-col: #FFD600; /* fallback giallo caldo */
+    }
+    .bg { fill: var(--bg-col, #FFB300); }
+    .accent { fill: var(--accent-col, #FFD600); }
+  </style>
+  <defs>
+    <clipPath id="clip-vouch-for_2">
+      <rect width="563" height="1161"/>
+    </clipPath>
+  </defs>
+  <g id="vouch-for_2" data-name="vouch-for – 2" clip-path="url(#clip-vouch-for_2)">
+    <rect class="bg" width="563" height="1161"/>
+    <rect class="accent" id="Rectangle_49" data-name="Rectangle 49" width="844" height="1106" rx="422" transform="translate(109 -501)"/>
+  </g>
+</svg>

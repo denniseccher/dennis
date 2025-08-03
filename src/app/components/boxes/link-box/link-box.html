@@ -1,5 +1,21 @@
+@if (box) {
 <div
-  class="box w-full h-full flex items-center justify-center"
-  [style.background]="gradientFromColors(colors)">
-  <img [src]="imgSrc">
+  class="box w-full h-full flex items-center justify-center relative"
+  [style.background]="gradientFromColors(box.colors)"
+>
+  <img class="logo" [src]="box.imgSrc" />
+
+  @if (box.link) {
+  <a class="box-link" (click)="onLinkTapped()">
+    @if (box.title) {
+    <p class="text">
+      {{ box.title }}
+    </p>
+    }
+    <div class="icon">
+      <img src="assets/arrow.svg" width="18" height="18" />
+    </div>
+  </a>
+  }
 </div>
+}

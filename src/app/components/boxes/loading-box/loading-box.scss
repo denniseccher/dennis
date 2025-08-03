@@ -1,0 +1,59 @@
+// L'animazione non cambia e resta condivisa
+@keyframes shimmer-animation {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// --- Classe base con stili condivisi ---
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  
+  // Colore di sfondo di default per la versione "light"
+  background-color: #e0e0e0;
+
+  // Pseudo-elemento per l'effetto di luccichio
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    // Proprietà condivise dell'animazione e del gradiente
+    background-size: 200% 100%;
+    animation: shimmer-animation 3s infinite linear;
+    
+    // Gradiente di default per la light mode (luccichio chiaro)
+    background-image: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    );
+  }
+}
+
+// --- Classe modificatore per la Dark Mode ---
+.shimmer-dark {
+  // 1. Sovrascrive il colore di sfondo dell'elemento rendendolo nero
+  background-color: #1a1a1a;
+
+  &::after {
+    // 2. Sovrascrive il gradiente con un luccichio più adatto allo scuro
+    // (un bianco leggero e semitrasparente è più gradevole del nero)
+    background-image: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.1) 50%, // Luccichio bianco molto sottile
+      rgba(255, 255, 255, 0) 60%
+    );
+  }
+}

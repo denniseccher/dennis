@@ -1,6 +1,7 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BoxBase } from '../box-base';
+import { LinkBoxInterface } from '../../../interfaces/boxes/link-box';
 
 @Component({
   selector: 'den-link-box',
@@ -9,12 +10,9 @@ import { BoxBase } from '../box-base';
   templateUrl: './link-box.html',
   styleUrl: './link-box.scss'
 })
-export class LinkBox extends BoxBase {
+export class LinkBox extends BoxBase<LinkBoxInterface> {
 
-  @Input() colors!: string[];
-  @Input() imgSrc!: string;
-
-  gradientFromColors(colors: string[]): string {
+  gradientFromColors(colors: string[] | undefined): string {
     if(colors){
       return `linear-gradient(45deg, ${colors.join(', ')})`;
     }
@@ -22,4 +20,8 @@ export class LinkBox extends BoxBase {
     return 'white';
   }
 
+  onLinkTapped(){
+    console.log("Link: ", this.box?.link);
+    window.open('https://www.' + this.box?.link, '_blank');
+  }
 }

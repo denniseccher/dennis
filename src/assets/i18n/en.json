@@ -1,0 +1,8 @@
+{
+    "menu" : {
+        "aboutme" : "about me",
+        "projects" : "projects",
+        "skills" : "skills",
+        "contacts" : "contacts"
+    }
+}

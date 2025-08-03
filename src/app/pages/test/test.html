@@ -1,21 +1,63 @@
 <den-navbar></den-navbar>
 <div
   class="dynamic-grid-container w-full grid grid-cols-2 md:grid-cols-4 grid-flow-dense gap-4 md:px-10 lg:px-48 px-4 pt-6 pb-12"
-  [style.--columns]="numberOfColumns" [style.--total-gap]="totalGap" [style.--total-padding]="totalPadding">
-
-  @for (item of gridItems; track item.id) {
-  @switch (item.type) {
-  @case ('link') {
-  <den-link-box [cols]="item.cols" [rows]="item.rows" [colors]="item.colors" [imgSrc]="item.imgSrc"
-    [box]="item">
+  [style.--columns]="numberOfColumns"
+  [style.--total-gap]="totalGap"
+  [style.--total-padding]="totalPadding"
+>
+  @for (item of gridItems; track item.id) { @switch (item.type) { @case ('link')
+  {
+  <den-link-box
+    [cols]="item.cols"
+    [rows]="item.rows"
+    [box]="item"
+  >
     {{ item.id }}
   </den-link-box>
-  }
-
-  @default {
-    <den-default-box [cols]="item.cols" [rows]="item.rows" [box]="item"></den-default-box>
-  }
-  }
-  }
-
+  } @default {
+  <den-default-box [cols]="item.cols" [rows]="item.rows" [box]="item">
+    <div class="box w-full h-full relative">
+      <img class="svg" src="assets/bg/bg1.svg" />
+      <div
+        class="absolute p-4 flex w-full h-full items-center justify-center top-0 left-0"
+      >
+        ciao
+      </div>
+      <a class="bl">
+        <p class="text">alvea</p>
+        <div class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18.256"
+            height="18.256"
+            viewBox="0 0 18.256 18.256"
+          > 
+            <g transform="translate(5.363 5.325)">
+              <path
+                d="M14.581,7.05,7.05,14.581"
+                transform="translate(-7.05 -7.012)"
+                fill="none"
+                stroke="#0D1117"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+              <path
+                d="M10,7l5.287.037.038,5.287"
+                transform="translate(-7.756 -7)"
+                fill="none"
+                stroke="#0D1117"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </g>
+            <path d="M0,0H18.256V18.256H0Z" fill="none" />
+          </svg>
+        </div>
+        
+      </a>
+    </div>
+  </den-default-box>
+  } } }
 </div>
