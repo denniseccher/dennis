@@ -1,0 +1,76 @@
+.dynamic-grid-container {
+  grid-auto-rows: calc(
+    (100cqw - var(--total-gap, 0rem) - var(--total-padding, 0rem)) /
+      var(--columns, 1)
+  );
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  --bg-col: pink
+}
+
+.box {
+  .bl {
+    /* --- MODIFICA CHIAVE: Trasformato in Grid --- */
+    display: grid;
+    /* Due colonne: la prima (testo) inizialmente è larga 0, la seconda (icona) si adatta */
+    grid-template-columns: 0fr auto;
+    gap: 0px; /* Il gap si attiva solo quando la prima colonna si espande */
+    align-items: center;
+
+    /* Rimosso justify-content, la griglia gestisce l'allineamento */
+    /* Rimosso width fissa, la griglia la calcola */
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px; /* Un po' di padding laterale per l'estetica */
+    
+    font-weight: lighter;
+    border-radius: 18px;
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    overflow: hidden;
+    background: #fff;
+    border: none;
+    /* --- MODIFICA CHIAVE: Animiamo la griglia invece della width --- */
+    transition: grid-template-columns 0.4s ease, box-shadow 0.2s ease-out;
+
+    .text {
+      /* --- MODIFICA CHIAVE: Invece di transform, usiamo solo l'opacità --- */
+      /* Il movimento è ora gestito dall'espansione della colonna della griglia */
+      opacity: 0;
+      transition: opacity 0.3s ease 0.1s; /* Appare con un piccolo ritardo */
+      white-space: nowrap;
+      font-weight: 400;
+      overflow: hidden; /* Necessario per il corretto funzionamento dell'animazione della griglia */
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &:hover {
+    .bl {
+      /* --- MODIFICA CHIAVE: Espandiamo la prima colonna a 1fr --- */
+      /* 1fr si adatterà perfettamente alla larghezza del testo */
+      grid-template-columns: 1fr auto;
+      gap: 4px; /* Attiviamo il gap tra testo e icona */
+
+      .text {
+        opacity: 1;
+        /* Non serve più il transform, l'effetto slide è dato dalla griglia */
+      }
+    }
+  }
+
+  .bl:hover {
+    cursor: pointer;
+    box-shadow: #fff 0 0 0 1px, rgba(255, 255, 255, 0.5) 0 0 0 6px;
+  }
+}

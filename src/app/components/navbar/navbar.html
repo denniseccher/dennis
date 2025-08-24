@@ -10,16 +10,14 @@
       }"
     ></div>
     @for (tab of tabs; track $index) {
-      <button
-        #tabButton
-        (click)="selectTab($index)"
-        [class.active]="selectedIndex === $index"
-        class="tab-button"
-      >
-        {{ 'menu.'+tab | translate | capital }}
-      </button>
+    <button
+      #tabButton
+      (click)="selectTab($index)"
+      [class.active]="selectedIndex === $index"
+      class="tab-button"
+    >
+      {{ "menu." + tab | translate | capital }}
+    </button>
     }
   </div>
-
-  <p class="actions justify-self-end">holaholaholaholaholaholaholaholahola</p>
 </div>
